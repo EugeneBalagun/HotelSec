@@ -65,3 +65,32 @@ SQLAlchemy ORM (no raw SQL)
 
 Proper exception handling with status codes
 
+Request Flow
+```bash
+Client POST /lead
+        |
+   Bearer JWT token
+        |
+  FastAPI Endpoint
+        |
+  Validate input (name, email, phone)
+        |
+  Check JWT (auth.get_current_user)
+        |
+  SQLAlchemy -> PostgreSQL insert
+        |
+Return JSON { "message": "Lead created successfully", "lead_id": <id> }
+```
+
+Database Structure
+```bash
++-----------------+
+|      leads      |
++-----------------+
+| id   (PK)       |
+| name            |
+| email           |
+| phone           |
+| created_at      |
++-----------------+
+```
