@@ -1,14 +1,12 @@
-# tests/test_post_lead.py
 import pytest
 from fastapi.testclient import TestClient
 from app.main import app
 import jwt
 import random
-from app.config import settings
+from app.core.config import settings
 
 client = TestClient(app)
 
-# tests/test_post_lead.py
 def test_create_lead_with_jwt():
     payload = {"sub": "testuser"}
     token = jwt.encode(payload, settings.JWT_SECRET_KEY, algorithm=settings.JWT_ALGORITHM)

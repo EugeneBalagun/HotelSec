@@ -65,6 +65,7 @@ SQLAlchemy ORM (no raw SQL)
 
 Proper exception handling with status codes
 
+<<<<<<< HEAD
 Request Flow
 ```bash
 Client POST /lead
@@ -94,3 +95,25 @@ Database Structure
 | created_at      |
 +-----------------+
 ```
+=======
+
+ERD
+```
+leads
++----+----------------+----------------------+--------------+
+| id | name           | email                | phone        |
++----+----------------+----------------------+--------------+
+| PK | varchar(100)   | varchar(120) UNIQUE  | varchar(20)  |
++----+----------------+----------------------+--------------+
+```
+
+Flow: POST /lead
+
+```aiignore
+
+Client → JWT Token → [Router] → [Service] → [Repository] → PostgreSQL
+          ↑
+          └── validate → 401/400 if fail
+
+```
+>>>>>>> 077d11c (refactor: update to clean architecture with services, repositories, improved README and tests)
