@@ -116,4 +116,4 @@ Client → JWT Token → [Router] → [Service] → [Repository] → PostgreSQL
           └── validate → 401/400 if fail
 
 ```
->>>>>>> 077d11c (refactor: update to clean architecture with services, repositories, improved README and tests)
+
